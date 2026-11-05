@@ -41,7 +41,8 @@ thinking-on math protocol in their evaluation regime.
 - **First public disclosure:** 2026-11-04.
 - **Experiments conducted:** carrier map and construction,
   2026-10-10–11; powered factorial arm, 2026-10-11; cross-validation
-  of the released edit, 2026-11-03–04.
+  of the released edit, 2026-11-03–04; crossed-intervention
+  follow-up (§5), 2026-11-05.
 - **Supporting historical records:** the Oct-11 results were hashed
   into a 578-file manifest (scoreboard rows SURGICAL-EVAL-CHAT-N20,
   FACTORIAL-2B-N200, B18-CARTDIFF; findings docs) and submitted to
@@ -91,6 +92,23 @@ control (same items, same models) shows post cap-hits at .26: we
 did not observe their failure mode in the tested non-thinking
 condition.
 
+**Crossed intervention (the §5 follow-up, run 2026-11-05).** Same
+items, cap, and sampling; five cells:
+
+| model | acc | cap-exhausted | detected loop | mean gen len |
+|-------|-----|---------------|---------------|--------------|
+| base  | .40 | .36 | .22 | 7,050 |
+| post  | .08 | .98 | .98 | 16,384 |
+| astra | .34 | .68 | .70 | 16,384 |
+| nomlp | .30 | .74 | .58 | 12,915 |
+| nomlpdelta | .26 | .60 | .28 | 12,053 |
+
+(`nomlp` = post with all MLP-block tensors reverted to base;
+`nomlpdelta` = nomlp with the released edit's two-tensor delta
+re-applied on the base-MLP substrate — constructed weights held.
+Strict degenerate-loop = flag ∧ cap: base .22, post .98, astra .52,
+nomlp .58, nomlpdelta .26.)
+
 ## 5. Observation / interpretation / prediction
 
 - **Observation:** the released edit improves long-horizon task
@@ -105,6 +123,18 @@ condition.
   combined — under one long-horizon protocol should change the two
   outcome classes independently. That is the specified follow-up
   experiment.
+- **Follow-up result (2026-11-05):** on the loop axis the carriers
+  behave roughly additively — each intervention alone removes about
+  half the excess looping (strict .98 → .52 astra / .58 nomlp), and
+  combined they approach the base phenotype (.26 vs .22). On the
+  accuracy axis they do not stack: every edited cell stays below
+  base (.40), and the combination (.26) sits below either single
+  intervention. Loop suppression and task recovery are therefore
+  partially dissociated even among the edited models — consistent
+  with separable carriers, not yet a clean independence proof.
+  Notably, the pre-post-training base is the best cell on both
+  axes: in this regime, post-training itself is the looping
+  regression.
 
 ## 6. Limitations
 
@@ -134,6 +164,8 @@ evaluation under a fixed protocol, results published by agreement.
   instrument-check artifact `instrument_check_wsp-astra.json` — battery arm
 - de-loop artifacts `nn_deloop_wsp_astra{,_thinking}.json` — probe arm
   (non-thinking control + thinking-on main)
+- crossed-intervention cells `nn_deloop_wsp_{cross,base}.json` —
+  §4 table + §5 follow-up result
 - Scoreboard rows: `SURGICAL-EVAL-CHAT-N20{,-X4}` (0.8B/2B),
   `SURGICAL-EVAL-WSP-ASTRA{,-X4}`, `FACTORIAL-2B-N200`,
   `B18-CARTDIFF`, `DELOOP-WSP-ASTRA-THINKING-MATH500-N50`
