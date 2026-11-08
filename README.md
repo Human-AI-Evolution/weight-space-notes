@@ -15,6 +15,7 @@ is independently checkable.
 |---|-------|------------|
 | 1 | [Selective post-training weight interventions: carrier localization and evaluation-regime dependence](note-1-carrier-localization.md) | 2026-11-04 |
 | 2 | [Precision vs. blunt surgery: rank-1 pathologies and distributed writes](note-2-precision-vs-blunt-surgery.md) | 2026-11-05 |
+| 3 | [Measured regularities of weight-space writes: four regularities and one interpretation](note-3-measured-regularities.md) | 2026-11-08 |
 
 Historical results are anchored with OpenTimestamps proofs
 (manifests + Bitcoin attestations); receipts available on request.
