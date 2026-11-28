@@ -17,6 +17,7 @@ is independently checkable.
 | 2 | [Precision vs. blunt surgery: rank-1 pathologies and distributed writes](note-2-precision-vs-blunt-surgery.md) | 2026-11-05 |
 | 3 | [Measured regularities of weight-space writes: four regularities and one interpretation](note-3-measured-regularities.md) | 2026-11-08 |
 | 3a | [Addendum: the §3 falsifier, executed](note-3-addendum-supply-null.md) | 2026-11-08 |
+| 4 | [The whole-set property: distributed relief, indivisible selectivity — cross-instrument falsification of revert decompositions](note-4-whole-set-property.md) | 2026-11-28 |
 
 Historical results are anchored with OpenTimestamps proofs
 (manifests + Bitcoin attestations); receipts available on request.
